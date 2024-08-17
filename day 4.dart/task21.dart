@@ -1,17 +1,23 @@
 import 'dart:ffi';
 
-void main() {
-  Book TheHumanMind = Book();
-  TheHumanMind.title = 'MIND';
-  TheHumanMind.author = 'JohnR.Andreson';
-  TheHumanMind.numberOfpages = 576;
-  print(TheHumanMind.title);
-  print(TheHumanMind.author);
-  print(TheHumanMind.numberOfpages);
+class Novel extends Book {
+  String genre;
+
+ 
+  Novel(String title, String author, int pages, this.genre) : super(title, author, pages);
+
+  
+  @override
+  void displayInfo() {
+    super.displayInfo();
+    print('Genre: $genre');
+  }
 }
 
-class Book {
-  String? title;
-  String? author;
-  int? numberOfpages;
+void main() {
+  
+  Novel myNovel = Novel('1984', 'George Orwell', 328, 'Dystopian');
+
+  // Displaying novel information
+  myNovel.displayInfo();
 }
